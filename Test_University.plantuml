@@ -1,0 +1,158 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class node11 as "Test_University.Book" {
+   author: 
+   title: 
+   __init__(self, title, author): 
+   __str__(self): 
+}
+class node8 as "Test_University.CSDataCourse" {
+   is_required_for_department(self, department): 
+}
+class node7 as "Test_University.Course" {
+   course_id: 
+   professor: 
+   name: 
+   students_enrolled: 
+   recommended_literature: 
+   __init__(self, course_id, name): 
+   add_recommendation(self, book, library): 
+   list_recommendations(self): 
+   enroll_student(self, student): 
+   set_professor(self, professor): 
+}
+class node10 as "Test_University.Department" {
+   courses_offered: 
+   department_id: 
+   name: 
+   professors: 
+   students: 
+   __init__(self, department_id, name): 
+   add_student(self, student): 
+   add_professor(self, professor): 
+   add_course(self, course): 
+   get_required_courses_for_specialization(self, specialization): 
+}
+class node0 as "Test_University.Human" {
+   name: 
+   read_books: 
+   age: 
+   __init__(self, name, age): 
+   speak(self): 
+   read_book(self, book): 
+   ask_question(self, recipient, question): 
+   answer_question(self, asker, question): 
+}
+class node6 as "Test_University.Library" {
+   books: 
+   name: 
+   __init__(self, name): 
+   add_book(self, book): 
+   remove_book(self, book): 
+   list_books(self): 
+   check_out_book(self, student, book): 
+   return_book(self, student, book): 
+}
+class node9 as "Test_University.MathCourse" {
+   is_required_for_department(self, department): 
+}
+class node5 as "Test_University.Professor" {
+   courses_taught: 
+   employee_id: 
+   department: 
+   experience: 
+   salary: 
+   __init__(self, name, age, employee_id, department, experience, salary): 
+   teach(self, course): 
+   get_experience(self): 
+   set_experience(self, years): 
+   promote(self, years): 
+   get_salary(self): 
+   set_salary(self, salary): 
+   recommend_book(self, student, book): 
+   teach_course(self, course): 
+   add_course(self, course): 
+}
+class node4 as "Test_University.Student" {
+   courses_enrolled: 
+   required_courses: 
+   student_id: 
+   specialization: 
+   department: 
+   __init__(self, name, age, student_id, specialization, required_courses, department): 
+   register_for_course(self, course): 
+   check_out_book(self, library, book): 
+   return_book_to_library(self, library, book): 
+   set_score(self, course, score): 
+   calculate_grade(self, course): 
+   has_honors_diploma(self): 
+   retake_failed_courses(self): 
+   is_eligible_for_graduation(self): 
+   graduate(self): 
+   retake_required_courses(self): 
+   ask_professor_for_recommendation(self, professor, book): 
+}
+class node3 as "Test_University.University" {
+   courses: 
+   library: 
+   name: 
+   professors: 
+   students: 
+   location: 
+   departments: 
+   __init__(self, name, location): 
+   enroll_student(self, student): 
+   hire_professor(self, professor): 
+   offer_course(self, course, professor): 
+   set_library(self, library): 
+   list_books(self): 
+   add_department(self, department): 
+   assign_professor_to_department(self, professor, department): 
+   assign_student_to_department(self, student, department): 
+   assign_department(self, department): 
+}
+class object {
+   __doc__: 
+   __dict__: 
+   __module__: 
+   __annotations__: 
+   __class__(self: Self): 
+   __class__(self, __type: type[object]): 
+   __init__(self): 
+   __new__(cls: type[Self]): 
+   __setattr__(self, __name: str, __value: Any): 
+   __delattr__(self, __name: str): 
+   __eq__(self, __o: object): 
+   __ne__(self, __o: object): 
+   __str__(self): 
+   __repr__(self): 
+   __hash__(self): 
+   __format__(self, __format_spec: str): 
+   __getattribute__(self, __name: str): 
+   __sizeof__(self): 
+   __reduce__(self): 
+   __reduce_ex__(self, __protocol: SupportsIndex): 
+   __reduce_ex__(self, __protocol: int): 
+   __dir__(self): 
+   __init_subclass__(cls): 
+}
+class node2 as "typing.Hashable" {
+   __hash__(self): 
+}
+
+node11  ^-[#595959,plain]-  object 
+node8   ^-[#595959,plain]-  node7  
+node7   ^-[#595959,plain]-  object 
+node10  ^-[#595959,plain]-  object 
+node0   ^-[#595959,plain]-  object 
+node6   ^-[#595959,plain]-  object 
+node9   ^-[#595959,plain]-  node7  
+node5   ^-[#595959,plain]-  node0  
+node4   ^-[#595959,plain]-  node0  
+node3   ^-[#595959,plain]-  object 
+object  ^-[#595959,dashed]-  node2  
+@enduml
